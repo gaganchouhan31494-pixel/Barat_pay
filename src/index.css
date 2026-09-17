@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #2447E8;
+  --primary-bright: #315BFF;
+  --primary-dark: #1738C8;
+  --primary-light: #EEF3FF;
+  --primary-very-light: #F7F9FF;
+  --bg: #F7F9FF;
+  --surface: #FFFFFF;
+  --text: #151A2D;
+  --text-secondary: #697086;
+  --text-muted: #9AA2B3;
+  --success: #20B486;
+  --warning: #F4B740;
+  --danger: #E05252;
+  --border: #E6ECFA;
+  --card-radius: 20px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #F7F9FF;
+    color: #151A2D;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F7F9FF;
+    color: #151A2D;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F9FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Unified Fintech Card & Gradient Utilities */
+.fintech-gradient-card {
+  background: linear-gradient(135deg, #1738C8 0%, #2447E8 52%, #315BFF 100%);
+  color: #FFFFFF;
+  box-shadow: 0 12px 32px -4px rgba(36, 71, 232, 0.28), 0 4px 12px -2px rgba(23, 56, 200, 0.18);
+  border-radius: var(--card-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.fintech-white-card {
+  background: #FFFFFF;
+  border: 1px solid #E6ECFA;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 20px -2px rgba(21, 26, 45, 0.04), 0 1px 3px rgba(21, 26, 45, 0.02);
+}
+
+.fintech-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #EEF3FF;
+  color: #2447E8;
+  border-radius: 14px;
+}
+
+/* Button & Action Glows */
+.fintech-primary-btn {
+  background-color: #2447E8;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.fintech-primary-btn:hover {
+  background-color: #1738C8;
+  box-shadow: 0 8px 24px -4px rgba(36, 71, 232, 0.35);
+}
+
+.fintech-primary-btn:active {
+  transform: scale(0.98);
+}

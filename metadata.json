@@ -1,0 +1,6 @@
+{
+  "name": "BharatPay - Wallet, UPI & Gold Silver Loans",
+  "description": "PhonePe & Paytm style digital wallet with instant money loading, UPI transfers, Gold & Silver loans, and bill payments.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
