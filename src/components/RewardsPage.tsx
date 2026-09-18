@@ -19,7 +19,7 @@ interface RewardsPageProps {
 
 export const RewardsPage: React.FC<RewardsPageProps> = ({ onAddCashbackToWallet }) => {
   const [scratchCards, setScratchCards] = useState([
-    { id: 1, amount: 75, merchant: 'Gharsana Anaj Mandi UPI Bonus', isRevealed: false },
+    { id: 1, amount: 75, merchant: 'Wholesale Mandi UPI Bonus', isRevealed: false },
     { id: 2, amount: 50, merchant: 'Electricity Bill Cashback', isRevealed: false },
     { id: 3, amount: 150, merchant: 'Gold Loan Approval Reward', isRevealed: true },
     { id: 4, amount: 25, merchant: 'Mobile Recharge Discount', isRevealed: true }
@@ -141,7 +141,7 @@ export const RewardsPage: React.FC<RewardsPageProps> = ({ onAddCashbackToWallet 
           </div>
           <div>
             <h3 className="text-sm font-bold text-[#151A2D]">
-              Refer a Friend or Merchant in 6MLD
+              Refer a Friend or Merchant
             </h3>
             <p className="text-xs text-[#697086]">
               Earn ₹100 instant bonus when your referral completes their first UPI payment or scans a QR.
@@ -156,7 +156,7 @@ export const RewardsPage: React.FC<RewardsPageProps> = ({ onAddCashbackToWallet 
             if (navigator.share) {
               navigator.share({
                 title: 'BharatPay Fintech App',
-                text: 'Join BharatPay for instant 0% UPI payments and gold loans in 6MLD Gharsana!',
+                text: 'Join BharatPay for instant 0% UPI payments and gold loans!',
                 url: window.location.href
               }).catch(() => {});
             } else {

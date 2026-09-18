@@ -112,8 +112,8 @@ export default function App() {
   const [notificationsList, setNotificationsList] = useState<NotificationItem[]>([
     {
       id: 'n1',
-      title: 'Credit Alert: Mandi Advance',
-      message: '₹35,000.00 credited to wallet via SBI 6MLD Gharsana for Narma Cotton Advance.',
+      title: 'Credit Alert: Business Advance',
+      message: '₹35,000.00 credited to wallet via SBI City Branch for Agri Advance.',
       time: '12 Sep, 11:30 AM',
       type: 'CREDIT',
       read: false
@@ -188,7 +188,7 @@ export default function App() {
       type: 'ADD_MONEY',
       amount,
       title: 'Wallet Top-up',
-      subtitle: `Via ${paymentMode} • SBI 6MLD Gharsana`,
+      subtitle: `Via ${paymentMode} • SBI City Branch`,
       date: 'Just Now',
       timestamp: Date.now(),
       status: 'SUCCESS',

@@ -15,7 +15,7 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
       network: 'RuPay Platinum',
       last4: '8821',
       expiry: '09/29',
-      holder: 'GAGAN CHOUHAN',
+      holder: 'RAHUL SHARMA',
       type: 'Debit Card',
       gradient: 'from-[#1738C8] via-[#2447E8] to-[#315BFF]'
     },
@@ -25,7 +25,7 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
       network: 'VISA Signature',
       last4: '4190',
       expiry: '12/28',
-      holder: 'GAGAN CHOUHAN',
+      holder: 'RAHUL SHARMA',
       type: 'Credit Card',
       gradient: 'from-[#151A2D] via-[#1E2746] to-[#2447E8]'
     }

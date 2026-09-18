@@ -72,7 +72,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   // Quick contacts
   const frequentBeneficiaries = [
-    { name: 'Gagan Deep', upi: 'gagan@sbi', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80', bank: 'SBI' },
+    { name: 'Aarav Patel', upi: 'aarav@sbi', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80', bank: 'SBI' },
     { name: 'Mandi Trader', upi: 'kisan@pnb', initial: 'MT', bank: 'PNB' },
     { name: 'Rahul Sharma', upi: 'rahul@kotak', initial: 'RS', bank: 'Kotak' },
     { name: 'Pooja Verma', upi: 'pooja@icici', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80', bank: 'ICICI' },

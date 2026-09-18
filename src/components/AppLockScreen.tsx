@@ -20,7 +20,7 @@ interface AppLockScreenProps {
 export const AppLockScreen: React.FC<AppLockScreenProps> = ({
   onUnlock,
   brandName = 'BharatPay',
-  userName = 'Gagan Chouhan'
+  userName = 'Aarav Sharma'
 }) => {
   const [pin, setPin] = useState<string>('');
   const [error, setError] = useState<string | null>(null);

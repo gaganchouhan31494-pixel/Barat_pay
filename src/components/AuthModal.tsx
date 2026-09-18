@@ -30,7 +30,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 }) => {
   const [mode, setMode] = useState<'login' | 'register' | 'otp' | 'forgot'>(initialMode);
   const [phoneOrEmail, setPhoneOrEmail] = useState('9829064210');
-  const [fullName, setFullName] = useState('Gagan Deep');
+  const [fullName, setFullName] = useState('Rahul Sharma');
   const [pinOrPassword, setPinOrPassword] = useState('8492');
   const [showPassword, setShowPassword] = useState(false);
   const [otpDigits, setOtpDigits] = useState(['5', '8', '2', '9', '4', '0']);
@@ -71,7 +71,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
     setTimeout(() => {
       setIsLoading(false);
-      onAuthSuccess(fullName || 'Gagan Deep', phoneOrEmail || '+91 98290 6MLD');
+      onAuthSuccess(fullName || 'Rahul Sharma', phoneOrEmail || '+91 98290 8800');
       onClose();
     }, 700);
   };
@@ -180,7 +180,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="e.g. Gagan Deep Sharma"
+                    placeholder="e.g. Rahul Sharma"
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 text-xs font-medium text-slate-900 placeholder:text-slate-400 outline-none transition-all"
                   />
                 </div>

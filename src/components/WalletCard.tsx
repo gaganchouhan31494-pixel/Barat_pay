@@ -86,7 +86,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({
             </div>
             <div className="text-xs text-[#697086] flex items-center gap-1 mt-0.5">
               <MapPin className="w-3 h-3 text-[#9AA2B3]" />
-              <span>Branch: 6MLD Gharsana, Sri Ganganagar</span>
+              <span>Branch: City Main Branch, New Delhi</span>
             </div>
           </div>
         </div>

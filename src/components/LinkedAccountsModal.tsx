@@ -17,7 +17,7 @@ export const LinkedAccountsModal: React.FC<LinkedAccountsModalProps> = ({
     {
       id: 'sbi',
       bankName: 'State Bank of India',
-      branch: '6MLD Gharsana (Sri Ganganagar)',
+      branch: 'City Main Branch',
       accountNumber: '•••• •••• 4519',
       ifsc: 'SBIN0031548',
       balance: 48250,
@@ -26,7 +26,7 @@ export const LinkedAccountsModal: React.FC<LinkedAccountsModalProps> = ({
     {
       id: 'pnb',
       bankName: 'Punjab National Bank',
-      branch: 'Gharsana Mandi',
+      branch: 'Commercial Hub Branch',
       accountNumber: '•••• •••• 9231',
       ifsc: 'PUNB0182400',
       balance: 14600,
@@ -35,7 +35,7 @@ export const LinkedAccountsModal: React.FC<LinkedAccountsModalProps> = ({
     {
       id: 'hdfc',
       bankName: 'HDFC Bank',
-      branch: 'Anoopgarh Branch',
+      branch: 'Metro Branch',
       accountNumber: '•••• •••• 7712',
       ifsc: 'HDFC0001890',
       balance: 62900,

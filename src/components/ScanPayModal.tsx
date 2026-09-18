@@ -26,8 +26,8 @@ interface ScanPayModalProps {
 
 const SAMPLE_MERCHANTS = [
   {
-    name: 'Chouhan General Store',
-    upiId: 'chouhan.store@bharatpay',
+    name: 'Gupta General Store',
+    upiId: 'gupta.store@bharatpay',
     category: 'Grocery & Essentials',
     icon: Store,
     suggestedAmount: 450

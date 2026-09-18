@@ -63,7 +63,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
           </div>
           <h3 className="text-lg font-bold text-[#151A2D]">{wallet.name}</h3>
           <p className="text-xs text-[#2447E8] font-semibold bg-[#EEF3FF] py-1 px-3 rounded-full inline-block border border-[#E6ECFA]">
-            Location: 6MLD, Gharsana (Sri Ganganagar)
+            Location: Central District, New Delhi
           </p>
         </div>
 
@@ -163,8 +163,8 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
               soundService.playClick();
               if (navigator.share) {
                 navigator.share({
-                  title: 'Pay Gagan Chouhan via UPI',
-                  text: `Send money to Gagan Chouhan via UPI ID: ${wallet.upiId}`
+                  title: `Pay ${wallet.name} via UPI`,
+                  text: `Send money to ${wallet.name} via UPI ID: ${wallet.upiId}`
                 }).catch(() => {});
               } else {
                 handleCopy();

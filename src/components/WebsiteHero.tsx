@@ -46,7 +46,7 @@ export const WebsiteHero: React.FC<WebsiteHeroProps> = ({
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-semibold text-white backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#20B486] animate-pulse" />
               <MapPin className="w-3.5 h-3.5" />
-              <span>Sri Ganganagar • 6MLD Gharsana Regional Hub</span>
+              <span>National Financial Network • Secure Gateway</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
@@ -55,7 +55,7 @@ export const WebsiteHero: React.FC<WebsiteHeroProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-white/90 max-w-xl font-normal leading-relaxed">
-              Tailored digital payment solutions for merchants, farmers, and modern retail — instant gold &amp; silver collateral loans, zero-second UPI transfers, and smart voice soundbox confirmations.
+              Tailored digital payment solutions for merchants, enterprises, and modern retail — instant gold &amp; silver collateral loans, zero-second UPI transfers, and smart voice soundbox confirmations.
             </p>
 
             {/* Quick Metrics */}
@@ -141,7 +141,7 @@ export const WebsiteHero: React.FC<WebsiteHeroProps> = ({
                     </div>
                     <div>
                       <span className="font-bold">State Bank of India (••8492)</span>
-                      <span className="text-[10px] text-[#697086] block">6MLD Gharsana Branch</span>
+                      <span className="text-[10px] text-[#697086] block">City Main Branch</span>
                     </div>
                   </div>
                   <span className="font-mono font-bold text-[#2447E8]">₹{bankBalance.toLocaleString('en-IN')}</span>

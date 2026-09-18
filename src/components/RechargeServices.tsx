@@ -51,27 +51,27 @@ export const RechargeServices: React.FC<RechargeServicesProps> = ({
 
     if (service.id === 'mobile') {
       setAccountNumber(wallet.phone);
-      setOperator('Jio Prepaid - Rajasthan Circle');
+      setOperator('Jio Prepaid - National Circle');
       setBillAmount(299);
     } else if (service.id === 'electricity') {
       setAccountNumber('K-NO-1902847120');
-      setOperator('JVVNL (Jaipur / Bikaner / Gharsana Division)');
+      setOperator('State Power Distribution (North Zone)');
       setBillAmount(1420);
     } else if (service.id === 'dth') {
       setAccountNumber('1092837461');
       setOperator('Tata Play DTH');
       setBillAmount(450);
     } else if (service.id === 'fastag') {
-      setAccountNumber('RJ-13-CA-4021');
+      setAccountNumber('DL-01-AB-4021');
       setOperator('SBI FASTag National Highway');
       setBillAmount(500);
     } else if (service.id === 'gas') {
       setAccountNumber('LPG-908234');
-      setOperator('Bharat Gas Gharsana Agency');
+      setOperator('National Gas Agency');
       setBillAmount(903);
     } else {
-      setAccountNumber('PHED-6MLD-041');
-      setOperator('PHED Water Board');
+      setAccountNumber('PHED-CITY-041');
+      setOperator('Municipal Water Board');
       setBillAmount(220);
     }
   };

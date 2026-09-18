@@ -78,22 +78,22 @@ export const WebsiteFooter: React.FC = () => {
                 Bharat<span className="text-[#2447E8]">Pay</span>
               </span>
               <span className="px-2 py-0.5 rounded-full bg-[#EEF3FF] text-[#2447E8] text-[10px] font-bold border border-[#E6ECFA]">
-                Sri Ganganagar
+                National Network
               </span>
             </div>
 
             <p className="text-xs text-[#697086] leading-relaxed max-w-sm">
-              BharatPay is a premier Indian digital payments and collateral credit platform based in 6MLD Gharsana (Sri Ganganagar, Rajasthan). We empower merchants, farmers, Mandi traders, and local enterprises with lightning-fast UPI payments, digital credit, and automated voice confirmations.
+              BharatPay is a premier Indian digital payments and collateral credit platform. We empower merchants, enterprises, and retail users with lightning-fast UPI payments, digital credit, and automated voice confirmations.
             </p>
 
             <div className="space-y-1.5 text-xs text-[#697086]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#2447E8] shrink-0" />
-                <span>Branch: Village 6MLD, Tehsil Gharsana, Dist. Sri Ganganagar, Rajasthan 335711</span>
+                <span>Corporate Office: Connaught Place, New Delhi, India 110001</span>
               </div>
               <div className="flex items-center gap-2">
                 <PhoneCall className="w-3.5 h-3.5 text-[#20B486] shrink-0" />
-                <span>Helpline: 1800-200-6MLD / +91 98765-43210 (24x7 Support)</span>
+                <span>Helpline: 1800-200-8800 / +91 98765-43210 (24x7 Support)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#2447E8] shrink-0" />
@@ -146,7 +146,7 @@ export const WebsiteFooter: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <span>Primary User: <strong className="text-[#151A2D]">Gagan Chauhan (6MLD)</strong></span>
+            <span>Primary User: <strong className="text-[#151A2D]">Rahul Sharma (New Delhi)</strong></span>
             <button
               type="button"
               onClick={scrollToTop}

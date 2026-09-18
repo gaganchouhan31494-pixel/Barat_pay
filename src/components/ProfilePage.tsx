@@ -67,7 +67,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
   // Masked values
   const maskedPhone = wallet.phone ? `+91 ${wallet.phone.slice(0, 5)} •••••` : '+91 98765 •••••';
-  const emailAddress = 'gagan.6mld@fintech.bharat';
+  const emailAddress = 'aarav.sharma@fintech.bharat';
   const maskedAadhaar = '•••• •••• ' + (wallet.aadhaarNumber?.slice(-4) || '8912');
   const maskedPan = (wallet.panNumber ? wallet.panNumber.slice(0, 5) + '••••' + wallet.panNumber.slice(-1) : 'ABCDE••••F');
 
@@ -77,7 +77,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
       id: 'personal',
       icon: User,
       title: 'Personal Details',
-      subtitle: `${wallet.name} • ${wallet.village || '6MLD Gharsana'}`,
+      subtitle: `${wallet.name} • ${wallet.village || 'Central District, New Delhi'}`,
       action: () => setActiveModal('PERSONAL')
     },
     {
@@ -126,7 +126,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
       id: 'support',
       icon: Headphones,
       title: 'Help & 24x7 Nodal Support',
-      subtitle: 'Toll-free 1800-200-6MLD • 6MLD Gharsana Helpdesk',
+      subtitle: 'Toll-free 1800-200-8800 • 24x7 Helpdesk',
       action: () => setActiveModal('SUPPORT')
     },
     {
@@ -211,8 +211,8 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
               </div>
               <div className="w-px h-6 bg-[#E6ECFA]" />
               <div>
-                <span className="text-[#697086] block text-[11px]">Village / Region</span>
-                <strong className="text-[#151A2D]">{wallet.village || '6MLD Gharsana'}</strong>
+                <span className="text-[#697086] block text-[11px]">City / Region</span>
+                <strong className="text-[#151A2D]">{wallet.village || 'Central District, New Delhi'}</strong>
               </div>
             </div>
           </div>
@@ -381,12 +381,12 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                     <strong className="text-[#151A2D]">{emailAddress}</strong>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#697086]">Village / Ward:</span>
-                    <strong className="text-[#151A2D]">{wallet.village || '6MLD Gharsana'}</strong>
+                    <span className="text-[#697086]">City / Area:</span>
+                    <strong className="text-[#151A2D]">{wallet.village || 'Central District, New Delhi'}</strong>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#697086]">District &amp; State:</span>
-                    <strong className="text-[#151A2D]">Sri Ganganagar, Rajasthan - 335021</strong>
+                    <span className="text-[#697086]">City &amp; State:</span>
+                    <strong className="text-[#151A2D]">New Delhi, India - 110001</strong>
                   </div>
                 </div>
               </div>
@@ -420,7 +420,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 <div className="p-3 bg-[#F7F9FF] rounded-xl border border-[#E6ECFA] space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-[#697086]">Toll-Free Helpline:</span>
-                    <a href="tel:18002006653" className="text-[#2447E8] font-bold">1800-200-6MLD</a>
+                    <a href="tel:18002008800" className="text-[#2447E8] font-bold">1800-200-8800</a>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-[#697086]">Support Email:</span>
@@ -428,7 +428,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-[#697086]">Branch Address:</span>
-                    <span className="text-[#151A2D]">Near SBI Branch, 6MLD Gharsana</span>
+                    <span className="text-[#151A2D]">Near Main Branch, New Delhi</span>
                   </div>
                 </div>
               </div>

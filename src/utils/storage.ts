@@ -5,21 +5,21 @@ const TRANSACTIONS_STORAGE_KEY = 'bharatpay_transactions_v2';
 const LOANS_STORAGE_KEY = 'bharatpay_loans_v2';
 
 export const initialWallet: UserWallet = {
-  name: 'Gagan Chouhan',
+  name: 'Aarav Sharma',
   phone: '9876543210',
-  upiId: 'gaganchouhan@bharatupi',
+  upiId: 'aaravsharma@okaxis',
   accountNumber: '389104928492',
   ifsc: 'SBIN0031849',
   balance: 24850,
   creditScore: 785,
-  village: '6MLD, Gharsana (Sri Ganganagar)',
+  village: 'Central District, New Delhi',
   panNumber: 'ABCDE1234F',
   aadhaarNumber: '•••• •••• 8842',
   bankAccount: {
     bankName: 'State Bank of India',
     accountNumber: '•••• •••• 8492',
     ifsc: 'SBIN0031849',
-    branch: 'Gharsana Mandi Branch',
+    branch: 'City Main Branch',
     balance: 86450,
     upiPinSet: true,
     isPrimary: true
@@ -60,48 +60,48 @@ export const initialMarketRates: MarketRates = {
 export const quickContacts: QuickContact[] = [
   {
     id: 'qc-1',
-    name: 'Ramesh Kumar (Kisan Mandi)',
-    upiId: 'ramesh.mandi@okaxis',
+    name: 'Rahul Verma (Agri Store)',
+    upiId: 'rahul.verma@okaxis',
     phone: '9414289012',
     avatar: '🌾',
     recentAmount: 1850,
-    role: 'Gharsana Anaj Mandi'
+    role: 'Wholesale Mandi'
   },
   {
     id: 'qc-2',
-    name: 'Baldev Singh Gill',
-    upiId: 'baldev.singh@sbi',
+    name: 'Vikram Singh',
+    upiId: 'vikram.singh@sbi',
     phone: '9829145678',
     avatar: '🚜',
     recentAmount: 500,
-    role: 'Tractor Repair & Parts'
+    role: 'Equipment & Spares'
   },
   {
     id: 'qc-3',
-    name: 'Chouhan Kirana 6MLD',
-    upiId: 'chouhankirana@paytm',
+    name: 'Gupta General Store',
+    upiId: 'guptastore@paytm',
     phone: '9460234123',
     avatar: '🛒',
     recentAmount: 420,
-    role: 'Village Ration & Daily'
+    role: 'Daily Provisions'
   },
   {
     id: 'qc-4',
-    name: 'Sharma Medical Hall',
-    upiId: 'sharmamedical@ybl',
+    name: 'City Care Pharmacy',
+    upiId: 'citypharmacy@ybl',
     phone: '9782190845',
     avatar: '💊',
     recentAmount: 310,
-    role: 'Gharsana Main Market'
+    role: 'Medical & Healthcare'
   },
   {
     id: 'qc-5',
-    name: 'Marwar Highway Dhaba',
-    upiId: 'marwardhaba@icici',
+    name: 'Metro Highway Café',
+    upiId: 'metrocafe@icici',
     phone: '9928109341',
     avatar: '☕',
     recentAmount: 160,
-    role: 'Tea & Snacks'
+    role: 'Food & Beverages'
   }
 ];
 

@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
             <span className="hidden sm:inline text-[#E6ECFA]">|</span>
             <span className="hidden md:inline text-[#697086] text-[11px]">
-              Branch: <strong className="text-[#151A2D] font-medium">6MLD Gharsana (Sri Ganganagar)</strong>
+              Branch: <strong className="text-[#151A2D] font-medium">City Main Branch, New Delhi</strong>
             </span>
             <span className="hidden lg:inline text-[#E6ECFA]">|</span>
             <span className="hidden lg:inline text-[#697086] text-[11px]">
@@ -118,12 +118,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <a 
-              href="tel:18002006653" 
+              href="tel:18002008800" 
               className="hidden sm:flex items-center gap-1 text-[10px] sm:text-[11px] text-[#697086] hover:text-[#2447E8] transition-colors font-medium"
             >
               <PhoneCall className="w-3 h-3 text-[#20B486] shrink-0" />
-              <span className="hidden md:inline">24x7 Helpline: 1800-200-6MLD</span>
-              <span className="md:hidden">1800-200-6MLD</span>
+              <span className="hidden md:inline">24x7 Helpline: 1800-200-8800</span>
+              <span className="md:hidden">1800-200-8800</span>
             </a>
           </div>
         </div>
@@ -445,11 +445,11 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <div className="flex items-center justify-between pt-2">
               <a
-                href="tel:18002006653"
+                href="tel:18002008800"
                 className="flex items-center gap-1.5 text-xs font-semibold text-[#697086] hover:text-[#2447E8]"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-[#20B486]" />
-                <span>Helpline: 1800-200-6MLD</span>
+                <span>Helpline: 1800-200-8800</span>
               </a>
 
               <button
