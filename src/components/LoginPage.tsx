@@ -18,7 +18,7 @@ import {
 import { soundService } from '../utils/audio';
 
 interface LoginPageProps {
-  onLoginSuccess: (name: string, identifier: string) => void;
+  onLoginSuccess: (name: string, identifier: string, village: string) => void;
   onNavigateToRegister?: () => void;
   brandName?: string;
 }
@@ -29,7 +29,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({
 }) => {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
   const [identifier, setIdentifier] = useState('9876543210');
-  const [fullName, setFullName] = useState('Gagan Chouhan');
+  const [fullName, setFullName] = useState('');
+  const [village, setVillage] = useState('');
   const [password, setPassword] = useState('••••');
   const [actualPassword, setActualPassword] = useState('1234');
   const [showPassword, setShowPassword] = useState(false);
@@ -56,7 +57,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     setTimeout(() => {
       setIsLoading(false);
       soundService.playSuccess();
-      onLoginSuccess(fullName.trim() || 'Gagan Chouhan', identifier);
+      onLoginSuccess(fullName.trim() || 'User', identifier, village.trim() || 'New Delhi, India');
     }, 800);
   };
 
@@ -66,7 +67,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({
     setTimeout(() => {
       setBiometricPrompt(false);
       soundService.playSuccess();
-      onLoginSuccess(fullName.trim() || 'Gagan Chouhan', '9876543210');
+      onLoginSuccess(fullName.trim() || 'User', '9876543210', village.trim() || 'New Delhi, India');
     }, 1200);
   };
 
@@ -146,7 +147,22 @@ export const LoginPage: React.FC<LoginPageProps> = ({
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="e.g. Gagan Chouhan"
+                placeholder="e.g. Ramesh Kumar"
+                className="w-full px-4 py-3 rounded-xl bg-[#F7F9FF] border border-[#E6ECFA] focus:bg-white focus:border-[#2447E8] focus:ring-2 focus:ring-[#2447E8]/15 text-sm font-medium text-[#151A2D] placeholder:text-[#9AA2B3] outline-none transition-all"
+              />
+            </div>
+
+            {/* City / Village / Location */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-semibold text-[#151A2D]">
+                City / Village / Location
+              </label>
+              <input
+                type="text"
+                required
+                value={village}
+                onChange={(e) => setVillage(e.target.value)}
+                placeholder="e.g. Gharsana, Sri Ganganagar"
                 className="w-full px-4 py-3 rounded-xl bg-[#F7F9FF] border border-[#E6ECFA] focus:bg-white focus:border-[#2447E8] focus:ring-2 focus:ring-[#2447E8]/15 text-sm font-medium text-[#151A2D] placeholder:text-[#9AA2B3] outline-none transition-all"
               />
             </div>

@@ -429,15 +429,17 @@ export default function App() {
           </div>
         )}
         <LoginPage
-          onLoginSuccess={(name, identifier) => {
+          onLoginSuccess={(name, identifier, villageInput) => {
             setIsAuthenticated(true);
             localStorage.setItem('bharatpay_auth', 'true');
             const formattedName = name || 'User';
-            const generatedUpi = formattedName.toLowerCase().replace(/[^a-z0-9]/g, '') + '@bharatupi';
+            const cleanUsername = formattedName.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const generatedUpi = `${cleanUsername || 'user'}@bharatupi`;
             const updatedWallet = {
               ...wallet,
               name: formattedName,
               phone: identifier,
+              village: villageInput || 'New Delhi, India',
               upiId: generatedUpi
             };
             setWallet(updatedWallet);
