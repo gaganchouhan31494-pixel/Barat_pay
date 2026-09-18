@@ -117,14 +117,14 @@ export const WalletCard: React.FC<WalletCardProps> = ({
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#151A2D]">
-                    {wallet.bankAccount.bankName}
+                    {wallet.bankAccount?.bankName || 'State Bank of India'}
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#EEF3FF] text-[#2447E8] font-semibold border border-[#E6ECFA]">
                     Primary Account
                   </span>
                 </div>
                 <div className="text-xs text-[#697086] font-mono mt-0.5">
-                  Account: {wallet.bankAccount.accountNumber} • IFSC: {wallet.bankAccount.ifsc}
+                  Account: {wallet.bankAccount?.accountNumber || '••••••••'} • IFSC: {wallet.bankAccount?.ifsc || 'SBIN0000000'}
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@ export const WalletCard: React.FC<WalletCardProps> = ({
                 Available Bank Balance
               </div>
               <div className="text-2xl font-black font-mono tracking-tight text-[#151A2D] mt-0.5">
-                {bankBalanceVisible ? `₹${wallet.bankAccount.balance.toLocaleString('en-IN')}` : '••••••••'}
+                {bankBalanceVisible ? `₹${(wallet.bankAccount?.balance ?? 0).toLocaleString('en-IN')}` : '••••••••'}
               </div>
             </div>
 

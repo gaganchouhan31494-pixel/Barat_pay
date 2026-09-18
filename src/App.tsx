@@ -71,23 +71,15 @@ export default function App() {
 
   // Authentication & Loading state
   const [showSplash, setShowSplash] = useState<boolean>(true);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => localStorage.getItem('bharatpay_auth') === 'true');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isPageLoading, setIsPageLoading] = useState<boolean>(false);
   const [loadingText, setLoadingText] = useState<string>('Loading secure payment gateway...');
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
 
   const handleSelectTab = (tab: 'home' | 'wallet' | 'loans' | 'rewards' | 'profile' | 'showcase') => {
-    const titles: Record<string, string> = {
-      home: 'Loading Dashboard...',
-      wallet: 'Loading Wallet Passbook...',
-      loans: 'Loading Gold & Silver Loans...',
-      rewards: 'Loading Rewards & Offers...',
-      profile: 'Loading Profile & KYC...',
-      showcase: 'Loading Mobile Mockup...'
-    };
-    setLoadingText(titles[tab] || 'Loading page...');
-    setIsPageLoading(true);
     soundService.playClick();
+    setLoadingText('Loading page...');
+    setIsPageLoading(true);
     setTimeout(() => {
       setActivePage(tab);
       setIsPageLoading(false);
@@ -401,7 +393,7 @@ export default function App() {
       setIsUpiPinOpen(false);
       if (upiPinAction === 'CHECK_BALANCE') {
         setBankBalanceVisible(true);
-        triggerNotification('SBI Account Balance', `Available Balance: ₹${wallet.bankAccount.balance.toLocaleString('en-IN')}`);
+        triggerNotification('SBI Account Balance', `Available Balance: ₹${(wallet.bankAccount?.balance ?? 0).toLocaleString('en-IN')}`);
       }
     } else {
       soundService.playError();
@@ -440,7 +432,16 @@ export default function App() {
           onLoginSuccess={(name, identifier) => {
             setIsAuthenticated(true);
             localStorage.setItem('bharatpay_auth', 'true');
-            setWallet(prev => ({ ...prev, name, phone: identifier }));
+            const formattedName = name || 'User';
+            const generatedUpi = formattedName.toLowerCase().replace(/[^a-z0-9]/g, '') + '@bharatupi';
+            const updatedWallet = {
+              ...wallet,
+              name: formattedName,
+              phone: identifier,
+              upiId: generatedUpi
+            };
+            setWallet(updatedWallet);
+            saveWallet(updatedWallet);
             setLoadingText('Signing in securely...');
             setIsPageLoading(true);
             setTimeout(() => {
@@ -670,22 +671,24 @@ export default function App() {
         isOpen={isAddMoneyOpen}
         onClose={() => setIsAddMoneyOpen(false)}
         onSuccess={handleAddMoneySuccess}
-        currentBalance={wallet.balance}
+        language={language}
       />
 
       <SendMoneyModal
         isOpen={isSendMoneyOpen}
         onClose={() => setIsSendMoneyOpen(false)}
         onSuccess={handleSendMoneySuccess}
-        currentBalance={wallet.balance}
-        contacts={quickContacts}
+        wallet={wallet}
+        language={language}
       />
 
       <ScanPayModal
         isOpen={isScanPayOpen}
         onClose={() => setIsScanPayOpen(false)}
-        onSuccess={handleScanPaySuccess}
-        currentBalance={wallet.balance}
+        onSelectMerchant={(merchantName, upiId, defaultAmount) => {
+          handleScanPaySuccess(defaultAmount || 250, merchantName, upiId);
+        }}
+        language={language}
       />
 
       <ReceiveQRModal

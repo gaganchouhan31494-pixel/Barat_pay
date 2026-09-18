@@ -5,9 +5,9 @@ const TRANSACTIONS_STORAGE_KEY = 'bharatpay_transactions_v2';
 const LOANS_STORAGE_KEY = 'bharatpay_loans_v2';
 
 export const initialWallet: UserWallet = {
-  name: 'Aarav Sharma',
+  name: 'Gagan Chouhan',
   phone: '9876543210',
-  upiId: 'aaravsharma@okaxis',
+  upiId: 'gaganchouhan@bharatupi',
   accountNumber: '389104928492',
   ifsc: 'SBIN0031849',
   balance: 24850,
@@ -183,7 +183,19 @@ export const initialLoans: Loan[] = [
 export function getStoredWallet(): UserWallet {
   try {
     const data = localStorage.getItem(WALLET_STORAGE_KEY);
-    return data ? JSON.parse(data) : initialWallet;
+    if (!data) return initialWallet;
+    const parsed = JSON.parse(data);
+    if (!parsed || typeof parsed !== 'object') return initialWallet;
+    return {
+      ...initialWallet,
+      ...parsed,
+      balance: typeof parsed.balance === 'number' ? parsed.balance : initialWallet.balance,
+      bankAccount: {
+        ...initialWallet.bankAccount,
+        ...(parsed.bankAccount || {}),
+        balance: typeof parsed.bankAccount?.balance === 'number' ? parsed.bankAccount.balance : initialWallet.bankAccount.balance
+      }
+    };
   } catch {
     return initialWallet;
   }
