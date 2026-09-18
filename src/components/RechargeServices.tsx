@@ -24,11 +24,11 @@ interface RechargeServicesProps {
 
 const SERVICES = [
   { id: 'mobile', name: 'Mobile Recharge', icon: Smartphone, popular: 'Jio / Airtel / Vi' },
-  { id: 'electricity', name: 'Electricity Bill', icon: Zap, popular: 'JVVNL / AVVNL (Rajasthan)' },
+  { id: 'electricity', name: 'Electricity Bill', icon: Zap, popular: 'JVVNL / Discoms' },
   { id: 'dth', name: 'DTH / Cable TV', icon: Tv, popular: 'Tata Play / Airtel DTH' },
-  { id: 'fastag', name: 'FASTag Recharge', icon: Car, popular: 'NHAI / SBI / Paytm' },
+  { id: 'fastag', name: 'FASTag Recharge', icon: Car, popular: 'NHAI / SBI / ICICI' },
   { id: 'gas', name: 'Book LPG Cylinder', icon: Flame, popular: 'Indane / Bharat Gas' },
-  { id: 'water', name: 'Water Bill (जल दाय)', icon: Droplets, popular: 'PHED Rajasthan' }
+  { id: 'water', name: 'Water Utility Bill', icon: Droplets, popular: 'Municipal Water Board' }
 ];
 
 export const RechargeServices: React.FC<RechargeServicesProps> = ({
@@ -81,12 +81,12 @@ export const RechargeServices: React.FC<RechargeServicesProps> = ({
     if (!activeModalService) return;
 
     if (billAmount <= 0) {
-      setError('कृपया सही बिल राशि भरें।');
+      setError('Please enter a valid bill amount.');
       return;
     }
 
     if (wallet.balance < billAmount) {
-      setError(`अपर्याप्त वॉलेट बैलेंस! आपके वॉलेट में ₹${wallet.balance.toLocaleString('en-IN')} हैं, जबकि बिल ₹${billAmount} का है। कृपया वॉलेट में पैसे जोड़ें।`);
+      setError(`Insufficient wallet balance! Your available balance is ₹${wallet.balance.toLocaleString('en-IN')}, while the bill is ₹${billAmount.toLocaleString('en-IN')}. Please add funds to your wallet.`);
       return;
     }
 

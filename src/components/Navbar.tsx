@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       : 'text-[#697086] hover:text-[#151A2D]'
                   }`}
                 >
-                  {lang === 'en' ? 'EN' : lang === 'hi' ? 'हिंदी' : 'बागड़ी'}
+                  {lang === 'en' ? 'EN' : lang === 'hi' ? 'HI' : 'REG'}
                 </button>
               ))}
             </div>

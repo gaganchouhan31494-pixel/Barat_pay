@@ -28,18 +28,18 @@ export const WebsiteFooter: React.FC = () => {
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-xs font-bold text-[#151A2D]">NPCI UPI 2.0 अधिकृत</h5>
-              <p className="text-[11px] text-[#697086]">100% सुरक्षित डिजिटल पेमेंट गेटवे</p>
+              <h5 className="text-xs font-bold text-[#151A2D]">NPCI UPI 2.0 Compliant</h5>
+              <p className="text-[11px] text-[#697086]">100% Secure digital payment gateway</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[#F4B740]/15 text-[#F4B740] flex items-center justify-center shrink-0">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-xs font-bold text-[#151A2D]">75% गोल्ड लोन सुरक्षा</h5>
-              <p className="text-[11px] text-[#697086]">बीमित सुरक्षित वॉल्ट व न्यूनतम ब्याज</p>
+              <h5 className="text-xs font-bold text-[#151A2D]">75% Gold Loan LTV</h5>
+              <p className="text-[11px] text-[#697086]">Insured security vaults &amp; low interest</p>
             </div>
           </div>
 
@@ -48,8 +48,8 @@ export const WebsiteFooter: React.FC = () => {
               <Building2 className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-xs font-bold text-[#151A2D]">नोडल बैंक: SBI</h5>
-              <p className="text-[11px] text-[#697086]">स्टेट बैंक ऑफ इंडिया लिंक्ड खाता</p>
+              <h5 className="text-xs font-bold text-[#151A2D]">Nodal Bank: SBI</h5>
+              <p className="text-[11px] text-[#697086]">State Bank of India linked account</p>
             </div>
           </div>
 
@@ -58,8 +58,8 @@ export const WebsiteFooter: React.FC = () => {
               <Lock className="w-5 h-5" />
             </div>
             <div>
-              <h5 className="text-xs font-bold text-[#151A2D]">256-बिट SSL एन्क्रिप्शन</h5>
-              <p className="text-[11px] text-[#697086]">RBI डिजिटल लेंडिंग दिशा-निर्देशित</p>
+              <h5 className="text-xs font-bold text-[#151A2D]">256-Bit SSL Encryption</h5>
+              <p className="text-[11px] text-[#697086]">Bank-grade digital financial protection</p>
             </div>
           </div>
         </div>
@@ -78,63 +78,63 @@ export const WebsiteFooter: React.FC = () => {
                 Bharat<span className="text-[#2447E8]">Pay</span>
               </span>
               <span className="px-2 py-0.5 rounded-full bg-[#EEF3FF] text-[#2447E8] text-[10px] font-bold border border-[#E6ECFA]">
-                6MLD घड़साना
+                Sri Ganganagar
               </span>
             </div>
 
             <p className="text-xs text-[#697086] leading-relaxed max-w-sm">
-              भारतपे 6MLD घड़साना (श्रीगंगानगर, राजस्थान) का प्रमुख डिजिटल बैंकिंग, गोल्ड व सिल्वर लोन पोर्टल है। हम किसानों, मंडी आढ़तियों, किराना स्टोर और आम नागरिकों को सरल, सुरक्षित व बिना कागजी परेशानी के डिजिटल बैंकिंग सेवाएं प्रदान करते हैं।
+              BharatPay is a premier Indian digital payments and collateral credit platform based in 6MLD Gharsana (Sri Ganganagar, Rajasthan). We empower merchants, farmers, Mandi traders, and local enterprises with lightning-fast UPI payments, digital credit, and automated voice confirmations.
             </p>
 
             <div className="space-y-1.5 text-xs text-[#697086]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#2447E8] shrink-0" />
-                <span>शाखा: गाँव 6MLD, तहसील घड़साना, जिला श्रीगंगानगर (राज.) 335711</span>
+                <span>Branch: Village 6MLD, Tehsil Gharsana, Dist. Sri Ganganagar, Rajasthan 335711</span>
               </div>
               <div className="flex items-center gap-2">
                 <PhoneCall className="w-3.5 h-3.5 text-[#20B486] shrink-0" />
-                <span>हेल्पलाइन: 1800-200-6MLD / +91 98765-43210 (24x7)</span>
+                <span>Helpline: 1800-200-6MLD / +91 98765-43210 (24x7 Support)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#2447E8] shrink-0" />
-                <span>ईमेल: support@bharatpay-gharsana.in</span>
+                <span>Email: support@bharatpay-fintech.in</span>
               </div>
             </div>
           </div>
 
           {/* Col 2: Banking Products */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">बैंकिंग सेवाएं</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">Payment Services</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">BharatPay वॉलेट</a></li>
-              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">SBI नोडल बैंक खाता</a></li>
-              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">UPI 2.0 मोबाइल पेमेंट</a></li>
-              <li><a href="#recharge-services" className="hover:text-[#2447E8] transition-colors">बिजली, पानी व मोबाइल बिल</a></li>
-              <li><a href="#passbook" className="hover:text-[#2447E8] transition-colors">डिजिटल पासबुक व रसीदें</a></li>
+              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">BharatPay Digital Wallet</a></li>
+              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">SBI Linked Account</a></li>
+              <li><a href="#wallet" className="hover:text-[#2447E8] transition-colors">UPI 2.0 Mobile Transfer</a></li>
+              <li><a href="#recharge-services" className="hover:text-[#2447E8] transition-colors">Utility &amp; Mobile Recharges</a></li>
+              <li><a href="#passbook" className="hover:text-[#2447E8] transition-colors">Digital Passbook &amp; Ledger</a></li>
             </ul>
           </div>
 
           {/* Col 3: Loan Products */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">लोन उत्पाद</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">Credit Solutions</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#loans-section" className="hover:text-amber-700 transition-colors">गोल्ड लोन (सोने पर लोन)</a></li>
-              <li><a href="#loans-section" className="hover:text-[#151A2D] transition-colors">सिल्वर लोन (चांदी के गहने)</a></li>
-              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">किसान व मंडी फसल अग्रिम</a></li>
-              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">EMI भुगतान व ब्याज छूट</a></li>
-              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">MCX लाइव बुलियन दरें</a></li>
+              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">Gold Collateral Credit</a></li>
+              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">Silver Articles Credit</a></li>
+              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">Mandi Produce Advance</a></li>
+              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">Instant Wallet Disbursal</a></li>
+              <li><a href="#loans-section" className="hover:text-[#2447E8] transition-colors">Live MCX Bullion Rates</a></li>
             </ul>
           </div>
 
-          {/* Col 4: Legal & Support */}
+          {/* Col 4: Trust & Compliance */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">सुरक्षा व सहायता</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#151A2D]">Trust &amp; Security</h4>
             <ul className="space-y-2 text-xs">
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> आधार e-KYC गाइड</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> UPI पिन सुरक्षा नियम</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> RBI शिकायत निवारण</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> गोपनीयता नीति (Privacy)</li>
-              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> नियम व शर्तें (Terms)</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> Digital e-KYC Verification</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> UPI PIN Security Standard</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> Grievance Redressal</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> Privacy Policy</li>
+              <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3 h-3 text-[#20B486]" /> Terms &amp; Conditions</li>
             </ul>
           </div>
         </div>
@@ -142,17 +142,17 @@ export const WebsiteFooter: React.FC = () => {
         {/* Bottom copyright */}
         <div className="mt-8 pt-6 border-t border-[#E6ECFA] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#697086]">
           <div>
-            &copy; {new Date().getFullYear()} BharatPay Digital Banking Portal (गाँव 6MLD घड़साना). सर्वाधिकार सुरक्षित।
+            &copy; {new Date().getFullYear()} BharatPay Fintech Services. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">
-            <span>खाताधारक: <strong>गगन चौहान (6MLD)</strong></span>
+            <span>Primary User: <strong className="text-[#151A2D]">Gagan Chauhan (6MLD)</strong></span>
             <button
               type="button"
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-[#F7F9FF] border border-[#E6ECFA] hover:bg-[#EEF3FF] text-[#151A2D] flex items-center gap-1 font-semibold transition-colors cursor-pointer"
             >
-              <span>ऊपर जाएं</span>
+              <span>Back to Top</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>

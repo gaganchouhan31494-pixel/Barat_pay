@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CreditCard, ShieldCheck, Plus, Wifi, CheckCircle2 } from 'lucide-react';
+import { X, CreditCard, ShieldCheck, Plus, Wifi } from 'lucide-react';
 import { soundService } from '../utils/audio';
 
 interface LinkedCardsModalProps {
@@ -17,7 +17,7 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
       expiry: '09/29',
       holder: 'GAGAN CHOUHAN',
       type: 'Debit Card',
-      gradient: 'from-[#1e3c72] via-[#2a5298] to-[#0f2027]'
+      gradient: 'from-[#1738C8] via-[#2447E8] to-[#315BFF]'
     },
     {
       id: 'c2',
@@ -27,28 +27,28 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
       expiry: '12/28',
       holder: 'GAGAN CHOUHAN',
       type: 'Credit Card',
-      gradient: 'from-[#000046] via-[#1cb5e0] to-[#000046]'
+      gradient: 'from-[#151A2D] via-[#1E2746] to-[#2447E8]'
     }
   ]);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-md animate-fade-in">
-      <div className="relative w-full max-w-md rounded-3xl bg-white/95 backdrop-blur-xl border border-white/80 shadow-2xl p-6 space-y-4 text-slate-900">
-        <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-md rounded-2xl bg-white border border-[#E6ECFA] shadow-2xl p-6 space-y-4 text-[#151A2D]">
+        <div className="flex items-center justify-between pb-2 border-b border-[#E6ECFA]">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#EEF3FF] text-[#2447E8] border border-[#2447E8]/20 flex items-center justify-center">
               <CreditCard className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900">Linked Cards</h3>
-              <p className="text-xs text-slate-500">2 Active RBI Tokenized Cards</p>
+              <h3 className="text-base font-bold text-[#151A2D]">Linked Cards</h3>
+              <p className="text-xs text-[#697086]">2 Active Bank-Tokenized Cards</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="p-1 rounded-full text-[#9AA2B3] hover:text-[#151A2D] hover:bg-[#F7F9FF] transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -73,8 +73,8 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
               </div>
 
               {/* EMV Chip */}
-              <div className="w-9 h-7 rounded-md bg-amber-400/90 border border-amber-300 shadow-inner mb-3 flex items-center justify-center">
-                <div className="w-6 h-4 border border-amber-600/40 rounded-sm" />
+              <div className="w-9 h-7 rounded-md bg-[#F4B740] border border-amber-300 shadow-inner mb-3 flex items-center justify-center">
+                <div className="w-6 h-4 border border-amber-700/40 rounded-sm" />
               </div>
 
               <div className="font-mono text-base sm:text-lg tracking-widest font-semibold mb-3">
@@ -99,17 +99,17 @@ export const LinkedCardsModal: React.FC<LinkedCardsModalProps> = ({ isOpen, onCl
         <button
           onClick={() => {
             soundService.playClick();
-            alert('RBI Tokenization flow: Enter card details in secure iframe.');
+            alert('Card Tokenization flow: Enter card details in secure checkout.');
           }}
-          className="w-full py-3 rounded-2xl border-2 border-dashed border-blue-300 hover:border-blue-500 bg-blue-50/30 text-blue-700 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+          className="w-full py-3 rounded-xl border border-dashed border-[#2447E8]/40 hover:border-[#2447E8] bg-[#EEF3FF]/40 text-[#2447E8] font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Debit or Credit Card</span>
         </button>
 
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-500 justify-center">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-          <span>CVV is never stored. 100% tokenized as per RBI norm.</span>
+        <div className="flex items-center gap-1.5 text-[11px] text-[#697086] justify-center">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#20B486]" />
+          <span>CVV is never stored. 100% tokenized as per digital banking safety standards.</span>
         </div>
       </div>
     </div>

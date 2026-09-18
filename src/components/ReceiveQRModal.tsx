@@ -17,14 +17,13 @@ interface ReceiveQRModalProps {
   isOpen: boolean;
   onClose: () => void;
   wallet: UserWallet;
-  language: Language;
+  language?: Language;
 }
 
 export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
   isOpen,
   onClose,
-  wallet,
-  language
+  wallet
 }) => {
   const [copied, setCopied] = useState(false);
   const [downloadNotice, setDownloadNotice] = useState<string | null>(null);
@@ -42,17 +41,17 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
 
   const handleDownloadQR = () => {
     soundService.playClick();
-    setDownloadNotice('QR कोड डिवाइस में सहेज लिया गया है');
+    setDownloadNotice('QR code saved to device image gallery');
     setTimeout(() => setDownloadNotice(null), 3000);
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 text-center space-y-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-white border border-[#E6ECFA] shadow-2xl p-6 text-center space-y-4">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-1.5 rounded-full text-[#697086] hover:text-[#151A2D] hover:bg-[#F7F9FF] transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -60,11 +59,11 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
         {/* Header */}
         <div className="space-y-1 pt-1">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EEF3FF] text-[#2447E8] border border-[#E6ECFA] text-xs font-semibold">
-            <Sparkles className="w-3.5 h-3.5" /> BharatPay All-in-One UPI QR
+            <Sparkles className="w-3.5 h-3.5" /> All-in-One UPI QR
           </div>
           <h3 className="text-lg font-bold text-[#151A2D]">{wallet.name}</h3>
           <p className="text-xs text-[#2447E8] font-semibold bg-[#EEF3FF] py-1 px-3 rounded-full inline-block border border-[#E6ECFA]">
-            गाँव: 6MLD, घड़साना (श्रीगंगानगर)
+            Location: 6MLD, Gharsana (Sri Ganganagar)
           </p>
         </div>
 
@@ -121,7 +120,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
 
         {/* UPI ID display & copy */}
         <div className="space-y-1.5">
-          <div className="text-xs text-[#697086] font-medium">आपकी अधिकृत UPI आईडी:</div>
+          <div className="text-xs text-[#697086] font-medium">Your Verified UPI ID:</div>
           <button
             onClick={handleCopy}
             className="w-full py-2 px-3 rounded-xl bg-[#F7F9FF] border border-[#E6ECFA] hover:bg-[#EEF3FF] text-xs font-mono text-[#2447E8] font-bold flex items-center justify-between transition-colors cursor-pointer"
@@ -129,7 +128,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
             <span>{wallet.upiId}</span>
             {copied ? (
               <span className="flex items-center gap-1 text-[#20B486] font-sans font-semibold">
-                <Check className="w-3.5 h-3.5" /> कॉपी हुआ
+                <Check className="w-3.5 h-3.5" /> Copied!
               </span>
             ) : (
               <Copy className="w-3.5 h-3.5 text-[#9AA2B3]" />
@@ -139,7 +138,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
 
         <div className="text-[11px] text-[#697086] flex items-center justify-center gap-1.5">
           <Building2 className="w-3.5 h-3.5 text-[#2447E8]" />
-          <span>सीधे लिंक्ड बैंक खाता: SBI (••8492) में जमा होगा</span>
+          <span>Directly deposits into linked bank: SBI (••8492)</span>
         </div>
 
         {downloadNotice && (
@@ -157,7 +156,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
             className="flex-1 py-2.5 rounded-xl bg-[#F7F9FF] hover:bg-[#EEF3FF] text-xs font-bold text-[#151A2D] flex items-center justify-center gap-1.5 border border-[#E6ECFA] transition-colors cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>QR डाउनलोड</span>
+            <span>Download QR</span>
           </button>
           <button
             onClick={() => {
@@ -165,7 +164,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
               if (navigator.share) {
                 navigator.share({
                   title: 'Pay Gagan Chouhan via UPI',
-                  text: `Send money to Gagan Chouhan (6MLD Gharsana) via UPI ID: ${wallet.upiId}`
+                  text: `Send money to Gagan Chouhan via UPI ID: ${wallet.upiId}`
                 }).catch(() => {});
               } else {
                 handleCopy();
@@ -174,7 +173,7 @@ export const ReceiveQRModal: React.FC<ReceiveQRModalProps> = ({
             className="flex-1 py-2.5 rounded-xl bg-[#2447E8] hover:bg-[#1738C8] text-xs font-bold text-white flex items-center justify-center gap-1.5 shadow-xs transition-colors cursor-pointer"
           >
             <Share2 className="w-3.5 h-3.5" />
-            <span>QR शेयर करें</span>
+            <span>Share QR</span>
           </button>
         </div>
       </div>

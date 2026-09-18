@@ -107,17 +107,17 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-blue-200/90 text-blue-900 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
           <span className="text-xs font-black tracking-wide uppercase">
-            3-स्क्रीन लाइव शोकेस • Side-by-Side Reference Design
+            3-Screen Live Experience • Side-by-Side Interface
           </span>
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
         </div>
 
-        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">
-          होम, वॉलेट व प्रोफाइल — लाइव 3D इंटरैक्टिव फोन
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#151A2D] tracking-tight">
+          Home, Wallet &amp; Profile — Interactive Mobile Views
         </h2>
 
-        <p className="text-xs text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          तीनों स्क्रीन्स असली स्मार्टफोन में लाइव काम कर रही हैं। किसी भी बटन पर क्लिक करके पैसे जोड़ें, UPI ट्रांसफर करें, या सीमाएं जांचें।
+        <p className="text-xs text-[#697086] max-w-2xl mx-auto leading-relaxed">
+          All three screens operate live simultaneously. Click on quick actions, manage wallet balances, and test instant transfers directly.
         </p>
 
         {/* Segmented Screen Selector (Crucial for mobile and focused screen inspection!) */}
@@ -136,7 +136,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
               }`}
             >
               <Smartphone className="w-3.5 h-3.5" />
-              <span>तीनों स्क्रीन्स (3 Phones)</span>
+              <span>All Screens (3 Views)</span>
             </button>
 
             <button
@@ -151,7 +151,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
                   : 'text-[#697086] hover:text-[#151A2D] hover:bg-[#F7F9FF]'
               }`}
             >
-              <span>1. Home (होम)</span>
+              <span>1. Home Screen</span>
             </button>
 
             <button
@@ -166,7 +166,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
                   : 'text-[#697086] hover:text-[#151A2D] hover:bg-[#F7F9FF]'
               }`}
             >
-              <span>2. Wallet (वॉलेट)</span>
+              <span>2. Wallet Screen</span>
             </button>
 
             <button
@@ -181,14 +181,14 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
                   : 'text-[#697086] hover:text-[#151A2D] hover:bg-[#F7F9FF]'
               }`}
             >
-              <span>3. Profile (प्रोफाइल)</span>
+              <span>3. Profile Screen</span>
             </button>
           </div>
 
           {/* Zoom controls for large screens */}
           {activeScreenFilter === 'all' && (
             <div className="hidden xl:flex items-center gap-1 bg-white/90 backdrop-blur-md p-1 rounded-2xl border border-indigo-200/80 shadow-xs text-xs font-bold">
-              <span className="text-slate-400 px-2 text-[11px]">ज़ूम:</span>
+              <span className="text-slate-400 px-2 text-[11px]">Zoom:</span>
               {(['100', '90', '80'] as const).map(z => (
                 <button
                   key={z}
@@ -252,7 +252,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 font-bold border border-amber-300 shadow-xs cursor-pointer active:scale-95 transition-all"
           >
             <Volume2 className="w-3.5 h-3.5 text-amber-600" />
-            <span>साउंडबॉक्स वॉयस</span>
+            <span>Soundbox Audio</span>
           </button>
         </div>
       </div>
@@ -273,7 +273,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
               <div className="mb-2.5 text-center">
                 <span className="text-xs font-black px-3.5 py-1 rounded-full bg-blue-600 text-white shadow-sm flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  Screen 1 • Home (होम स्क्रीन)
+                  Screen 1 • Home Screen
                 </span>
               </div>
 
@@ -335,7 +335,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
               <div className="mb-2.5 text-center">
                 <span className="text-xs font-black px-3.5 py-1 rounded-full bg-indigo-600 text-white shadow-sm flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  Screen 2 • Wallet (वॉलेट व सीमाएं)
+                  Screen 2 • Wallet &amp; Limits
                 </span>
               </div>
 
@@ -396,7 +396,7 @@ export const ThreeScreensShowcase: React.FC<ThreeScreensShowcaseProps> = (props)
               <div className="mb-2.5 text-center">
                 <span className="text-xs font-black px-3.5 py-1 rounded-full bg-purple-600 text-white shadow-sm flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-white animate-ping" />
-                  Screen 3 • Profile (प्रोफाइल व सेटिंग्स)
+                  Screen 3 • Profile &amp; Settings
                 </span>
               </div>
 

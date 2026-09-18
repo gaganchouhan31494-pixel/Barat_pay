@@ -3,7 +3,6 @@ import { ThemeMode } from '../types';
 export interface ThemeConfig {
   id: ThemeMode;
   name: string;
-  hindiName: string;
   tagline: string;
   previewColor: string;
   accentColor: string;
@@ -21,83 +20,88 @@ export interface ThemeConfig {
 export const themeConfigs: Record<ThemeMode, ThemeConfig> = {
   light: {
     id: 'light',
-    name: 'BharatPay Corporate Banking',
-    hindiName: 'कॉर्पोरेट बैंकिंग (Light)',
-    tagline: 'साफ, पारदर्शी व आधुनिक बैंकिंग रूप',
-    previewColor: '#2563eb',
+    name: 'BharatPay Fintech Blue',
+    tagline: 'Modern Indian digital payment interface',
+    previewColor: '#2447E8',
     accentColor: 'blue',
-    bgCanvas: 'bg-slate-50',
-    textPrimary: 'text-slate-900',
-    textSecondary: 'text-slate-600',
+    bgCanvas: 'bg-[#F7F9FF]',
+    textPrimary: 'text-[#151A2D]',
+    textSecondary: 'text-[#697086]',
     cardBg: 'bg-white',
-    cardBorder: 'border-slate-200 shadow-sm',
+    cardBorder: 'border-[#E6ECFA] shadow-xs',
     headerBg: 'bg-white/95',
-    buttonGradient: 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm',
-    badgeBg: 'bg-blue-50 text-blue-700 border-blue-200',
+    buttonGradient: 'bg-[#2447E8] hover:bg-[#1738C8] text-white shadow-xs',
+    badgeBg: 'bg-[#EEF3FF] text-[#2447E8] border-[#E6ECFA]',
     isLight: true
   },
   phonepe: {
     id: 'phonepe',
-    name: 'BharatPay Blue Clean',
-    hindiName: 'रॉयल ब्लू लाइट',
-    tagline: 'क्लासिक यूपीआई फिनटेक लुक',
-    previewColor: '#1d4ed8',
+    name: 'Royal Blue Classic',
+    tagline: 'High contrast UPI fintech system',
+    previewColor: '#2447E8',
     accentColor: 'blue',
-    bgCanvas: 'bg-slate-50',
-    textPrimary: 'text-slate-900',
-    textSecondary: 'text-slate-600',
+    bgCanvas: 'bg-[#F7F9FF]',
+    textPrimary: 'text-[#151A2D]',
+    textSecondary: 'text-[#697086]',
     cardBg: 'bg-white',
-    cardBorder: 'border-blue-100 shadow-sm',
+    cardBorder: 'border-[#E6ECFA] shadow-xs',
     headerBg: 'bg-white/95',
-    buttonGradient: 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm',
-    badgeBg: 'bg-blue-50 text-blue-700 border-blue-200',
+    buttonGradient: 'bg-[#2447E8] hover:bg-[#1738C8] text-white shadow-xs',
+    badgeBg: 'bg-[#EEF3FF] text-[#2447E8] border-[#E6ECFA]',
     isLight: true
   },
   emerald: {
     id: 'emerald',
-    name: 'Kisan Agro Banking Clean',
-    hindiName: 'किसान एग्रो लाइट',
-    tagline: 'मंडी व कृषि समृद्ध ग्रीन थीम',
-    previewColor: '#059669',
+    name: 'Verified Merchant Surface',
+    tagline: 'Clean verified banking scheme',
+    previewColor: '#20B486',
     accentColor: 'emerald',
-    bgCanvas: 'bg-emerald-50/30',
-    textPrimary: 'text-slate-900',
-    textSecondary: 'text-slate-600',
+    bgCanvas: 'bg-[#F7F9FF]',
+    textPrimary: 'text-[#151A2D]',
+    textSecondary: 'text-[#697086]',
     cardBg: 'bg-white',
-    cardBorder: 'border-emerald-200 shadow-sm',
+    cardBorder: 'border-[#E6ECFA] shadow-xs',
     headerBg: 'bg-white/95',
-    buttonGradient: 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm',
-    badgeBg: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    buttonGradient: 'bg-[#2447E8] hover:bg-[#1738C8] text-white shadow-xs',
+    badgeBg: 'bg-[#EEF3FF] text-[#2447E8] border-[#E6ECFA]',
     isLight: true
   },
   gold: {
     id: 'gold',
-    name: 'Royal Bullion Vault Clean',
-    hindiName: 'रॉयल गोल्ड लाइट',
-    tagline: 'सोना-चांदी विशेष लाइट थीम',
-    previewColor: '#d97706',
+    name: 'Bullion & Gold Lending',
+    tagline: 'Specialized gold collateral theme',
+    previewColor: '#2447E8',
     accentColor: 'amber',
-    bgCanvas: 'bg-amber-50/30',
-    textPrimary: 'text-slate-900',
-    textSecondary: 'text-slate-600',
+    bgCanvas: 'bg-[#F7F9FF]',
+    textPrimary: 'text-[#151A2D]',
+    textSecondary: 'text-[#697086]',
     cardBg: 'bg-white',
-    cardBorder: 'border-amber-200 shadow-sm',
+    cardBorder: 'border-[#E6ECFA] shadow-xs',
     headerBg: 'bg-white/95',
-    buttonGradient: 'bg-amber-600 hover:bg-amber-700 text-white font-bold shadow-sm',
-    badgeBg: 'bg-amber-50 text-amber-800 border-amber-200',
+    buttonGradient: 'bg-[#2447E8] hover:bg-[#1738C8] text-white shadow-xs',
+    badgeBg: 'bg-[#EEF3FF] text-[#2447E8] border-[#E6ECFA]',
     isLight: true
   }
 };
 
-export const getStoredTheme = (): ThemeMode => {
-  return 'light';
-};
+const THEME_STORAGE_KEY = 'bharatpay_theme_mode_v2';
 
-export const saveTheme = (_theme: ThemeMode) => {
+export function getStoredTheme(): ThemeMode {
   try {
-    localStorage.setItem('bharatpay_theme', 'light');
-  } catch (e) {
-    console.error('Error saving theme to storage', e);
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved && ['phonepe', 'emerald', 'gold', 'light'].includes(saved)) {
+      return saved as ThemeMode;
+    }
+  } catch {
+    // ignore
   }
-};
+  return 'light';
+}
 
+export function saveTheme(mode: ThemeMode) {
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, mode);
+  } catch {
+    // ignore
+  }
+}

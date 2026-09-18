@@ -26,8 +26,7 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
   onSuccess,
   title,
   subtitle = 'State Bank of India (••8492)',
-  amount,
-  bankAccountEnding = '8492'
+  amount
 }) => {
   const [pin, setPin] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
@@ -65,14 +64,14 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
   const submitPin = (pinToVerify: string) => {
     setIsVerifying(true);
     setTimeout(() => {
-      // Allow any 4-digit PIN for seamless testing, but give real feeling
+      // Allow any 4-digit PIN for demo testing
       if (pinToVerify.length === 4) {
         soundService.playSuccessChime();
         onSuccess();
         onClose();
       } else {
         soundService.playError();
-        setError('गलत UPI पिन! कृपया पुनः प्रयास करें।');
+        setError('Incorrect UPI PIN. Please try again.');
         setPin('');
         setIsVerifying(false);
       }
@@ -80,22 +79,22 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/40 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-sm rounded-3xl bg-white border border-slate-200 shadow-2xl overflow-hidden flex flex-col justify-between min-h-[520px]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-sm rounded-3xl bg-white border border-[#E6ECFA] shadow-2xl overflow-hidden flex flex-col justify-between min-h-[500px]">
         {/* Top bar with NPCI / Bank Identity */}
-        <div className="p-4 border-b border-slate-100 bg-slate-50/70 flex items-center justify-between">
+        <div className="p-4 border-b border-[#E6ECFA] bg-[#F7F9FF] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-xs">
+            <div className="w-8 h-8 rounded-lg bg-[#2447E8] flex items-center justify-center text-white font-black text-xs">
               UPI
             </div>
             <div>
-              <div className="text-xs font-bold text-slate-900 tracking-wide">BHIM UPI Security</div>
-              <div className="text-[10px] text-slate-500">NPCI 256-Bit SSL Encrypted</div>
+              <div className="text-xs font-bold text-[#151A2D] tracking-wide">BHIM UPI Verification</div>
+              <div className="text-[10px] text-[#697086]">NPCI 256-Bit SSL Encrypted</div>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="p-1 rounded-full text-[#697086] hover:text-[#151A2D] hover:bg-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -103,19 +102,19 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
 
         {/* Transaction Summary */}
         <div className="p-5 text-center space-y-2">
-          <div className="text-xs font-medium text-slate-500">{title}</div>
+          <div className="text-xs font-medium text-[#697086]">{title}</div>
           {amount !== undefined && (
-            <div className="text-3xl font-black text-slate-900 font-mono tracking-tight">
+            <div className="text-3xl font-black text-[#151A2D] font-mono tracking-tight">
               ₹{amount.toLocaleString('en-IN')}
             </div>
           )}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] text-blue-700 font-semibold">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EEF3FF] border border-[#E6ECFA] text-[11px] text-[#2447E8] font-semibold">
             <Building2 className="w-3.5 h-3.5" />
             <span>{subtitle}</span>
           </div>
 
           <div className="pt-3">
-            <p className="text-xs text-slate-700 font-semibold tracking-wider">ENTER 4-DIGIT UPI PIN</p>
+            <p className="text-xs text-[#151A2D] font-semibold tracking-wider">ENTER 4-DIGIT UPI PIN</p>
             
             {/* PIN Dots Display */}
             <div className="flex items-center justify-center gap-4 my-3">
@@ -126,8 +125,8 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
                     key={idx}
                     className={`w-4 h-4 rounded-full transition-all duration-150 ${
                       filled
-                        ? 'bg-blue-600 scale-125 shadow-md shadow-blue-500/50'
-                        : 'border-2 border-slate-300 bg-transparent'
+                        ? 'bg-[#2447E8] scale-125 shadow-md shadow-[#2447E8]/40 ring-4 ring-[#EEF3FF]'
+                        : 'border-2 border-[#CBD5E1] bg-transparent'
                     }`}
                   />
                 );
@@ -135,25 +134,25 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
             </div>
 
             {error ? (
-              <div className="text-xs text-rose-600 font-medium flex items-center justify-center gap-1">
+              <div className="text-xs text-[#E05252] font-medium flex items-center justify-center gap-1">
                 <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                 <span>{error}</span>
               </div>
             ) : isVerifying ? (
-              <div className="text-xs text-blue-600 animate-pulse font-medium">
-                सत्यापित किया जा रहा है... (Verifying PIN)
+              <div className="text-xs text-[#2447E8] animate-pulse font-medium">
+                Verifying UPI PIN authorization...
               </div>
             ) : (
-              <div className="text-[11px] text-slate-500 flex items-center justify-center gap-1">
-                <Lock className="w-3 h-3 text-slate-400" />
-                <span>डेमो के लिए कोई भी 4 अंक (जैसे 1234) दर्ज करें</span>
+              <div className="text-[11px] text-[#697086] flex items-center justify-center gap-1">
+                <Lock className="w-3 h-3 text-[#9AA2B3]" />
+                <span>Enter any 4-digit PIN (e.g. 1234) to confirm</span>
               </div>
             )}
           </div>
         </div>
 
         {/* Authentic Numeric Keypad */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200">
+        <div className="p-4 bg-[#F7F9FF] border-t border-[#E6ECFA]">
           <div className="grid grid-cols-3 gap-2 text-center max-w-[280px] mx-auto">
             {['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((num) => (
               <button
@@ -161,7 +160,7 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
                 type="button"
                 onClick={() => handleKeyPress(num)}
                 disabled={isVerifying}
-                className="h-14 rounded-2xl bg-white hover:bg-slate-100 active:bg-blue-600 active:text-white border border-slate-200 text-xl font-bold text-slate-900 font-mono transition-all flex items-center justify-center cursor-pointer shadow-sm"
+                className="h-14 rounded-2xl bg-white hover:bg-[#EEF3FF] active:bg-[#2447E8] active:text-white border border-[#E6ECFA] text-xl font-bold text-[#151A2D] font-mono transition-all flex items-center justify-center cursor-pointer shadow-xs"
               >
                 {num}
               </button>
@@ -171,7 +170,7 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
               type="button"
               onClick={handleDelete}
               disabled={isVerifying}
-              className="h-14 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition-all flex items-center justify-center cursor-pointer"
+              className="h-14 rounded-2xl bg-white hover:bg-[#EEF3FF] text-[#697086] hover:text-[#151A2D] border border-[#E6ECFA] transition-all flex items-center justify-center cursor-pointer"
             >
               <Delete className="w-5 h-5" />
             </button>
@@ -180,7 +179,7 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
               type="button"
               onClick={() => handleKeyPress('0')}
               disabled={isVerifying}
-              className="h-14 rounded-2xl bg-white hover:bg-slate-100 active:bg-blue-600 active:text-white border border-slate-200 text-xl font-bold text-slate-900 font-mono transition-all flex items-center justify-center cursor-pointer shadow-sm"
+              className="h-14 rounded-2xl bg-white hover:bg-[#EEF3FF] active:bg-[#2447E8] active:text-white border border-[#E6ECFA] text-xl font-bold text-[#151A2D] font-mono transition-all flex items-center justify-center cursor-pointer shadow-xs"
             >
               0
             </button>
@@ -193,11 +192,11 @@ export const UpiPinModal: React.FC<UpiPinModalProps> = ({
               disabled={pin.length !== 4 || isVerifying}
               className={`h-14 rounded-2xl transition-all flex items-center justify-center font-bold text-white cursor-pointer ${
                 pin.length === 4 && !isVerifying
-                  ? 'bg-emerald-600 hover:bg-emerald-500 shadow-md'
-                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                  ? 'bg-[#20B486] hover:bg-[#1ca077] shadow-xs'
+                  : 'bg-[#CBD5E1] text-white/60 cursor-not-allowed'
               }`}
             >
-              <Check className="w-6 h-6" />
+              <Check className="w-6 h-6 stroke-[3]" />
             </button>
           </div>
         </div>

@@ -131,7 +131,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
       id: 'settings',
       icon: Settings,
       title: 'Application Preferences',
-      subtitle: `Language: ${language === 'en' ? 'English' : language === 'hi' ? 'हिंदी' : 'बागड़ी'}`,
+      subtitle: `Language: ${language === 'en' ? 'English' : language === 'hi' ? 'Hindi' : 'Regional'}`,
       action: () => setActiveModal('SETTINGS')
     }
   ];
@@ -230,7 +230,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                     <h3 className="text-xs font-bold uppercase tracking-wider text-white">
                       Full KYC Verified
                     </h3>
-                    <p className="text-[11px] text-white/80">Level-3 NPCI / RBI Compliant</p>
+                    <p className="text-[11px] text-white/80">Level-3 Enterprise Grade KYC Verified</p>
                   </div>
                 </div>
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#2447E8]">
@@ -445,7 +445,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                           : 'bg-[#F7F9FF] text-[#151A2D] border-[#E6ECFA] hover:bg-white'
                       }`}
                     >
-                      {lang === 'en' ? 'English' : lang === 'hi' ? 'हिंदी' : 'बागड़ी'}
+                      {lang === 'en' ? 'English' : lang === 'hi' ? 'Hindi' : 'Regional'}
                     </button>
                   ))}
                 </div>

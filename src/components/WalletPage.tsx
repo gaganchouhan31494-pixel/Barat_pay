@@ -123,7 +123,7 @@ export const WalletPage: React.FC<WalletPageProps> = ({
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-[#20B486]/10 text-[#20B486] border border-[#20B486]/20">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>RBI / NPCI Registered</span>
+            <span>NPCI UPI 2.0 Certified</span>
           </span>
         </div>
       </div>

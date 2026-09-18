@@ -25,9 +25,9 @@ interface SendMoneyModalProps {
 
 const RECENT_CONTACTS = [
   { name: 'Rahul Sharma', phone: '9829012345', upi: 'rahulsharma@okhdfcbank', avatar: 'R' },
-  { name: 'Amit Kumar (Gharsana)', phone: '9414054321', upi: 'amit.kumar@paytm', avatar: 'A' },
+  { name: 'Amit Kumar', phone: '9414054321', upi: 'amit.kumar@paytm', avatar: 'A' },
   { name: 'Priya Singh', phone: '9783067890', upi: 'priyasingh@ybl', avatar: 'P' },
-  { name: 'Vikram Verma (6MLD)', phone: '9672089012', upi: 'vikram.6mld@icici', avatar: 'V' }
+  { name: 'Vikram Verma', phone: '9672089012', upi: 'vikram.verma@icici', avatar: 'V' }
 ];
 
 export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
@@ -51,75 +51,34 @@ export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
 
   if (!isOpen) return null;
 
-  const translations = {
-    hi: {
-      title: 'पैसे भेजें (Send Money)',
-      subtitle: 'वॉलेट या बैंक से किसी भी मोबाइल, UPI आईडी या बैंक खाते में ट्रांसफर करें',
-      toMobile: 'मोबाइल नंबर',
-      toUpi: 'UPI आईडी',
-      toBank: 'बैंक खाता',
-      recent: 'हाल ही के संपर्क (6MLD व अन्य):',
-      amount: 'भेजने वाली राशि (₹)',
-      note: 'नोट / टिप्पणी (वैकल्पिक)',
-      payFrom: 'भुगतान का स्रोत:',
-      payBtn: 'पे करें ₹',
-      balance: 'उपलब्ध बैलेंस',
-      lowBalance: 'वॉलेट में बैलेंस कम है! कृपया पहले वॉलेट लोड करें।',
-      enterPin: '4-अंकों का UPI पिन दर्ज करें',
-      pinSubtitle: 'स्टेट बैंक ऑफ इंडिया (SBI) सुरक्षा प्रमाणीकरण',
-      processing: 'पेमेंट प्रोसेस हो रहा है...',
-      successTitle: 'पेमेंट सफल रहा!',
-      successSubtitle: 'रुपये सीधे प्राप्तकर्ता के खाते में ट्रांसफर कर दिए गए हैं'
-    },
-    en: {
-      title: 'Send Money',
-      subtitle: 'Transfer instantly from BharatPay Wallet or SBI A/c to any UPI/Mobile',
-      toMobile: 'To Mobile Number',
-      toUpi: 'To UPI ID',
-      toBank: 'To Bank A/c',
-      recent: 'Recent Contacts:',
-      amount: 'Transfer Amount (₹)',
-      note: 'Add Note / Remark (Optional)',
-      payFrom: 'Pay From:',
-      payBtn: 'Pay ₹',
-      balance: 'Available Balance',
-      lowBalance: 'Insufficient Wallet balance! Please load money first.',
-      enterPin: 'Enter 4-Digit UPI PIN',
-      pinSubtitle: 'State Bank of India Security Verification',
-      processing: 'Processing Payment...',
-      successTitle: 'Payment Successful!',
-      successSubtitle: 'Funds sent directly to recipient instantly'
-    },
-    bg: {
-      title: 'पईसा भेजो (Send Money)',
-      subtitle: 'वॉलेट स्यूं सीधा मोबाइल, UPI या बैंक में पईसा भेजो',
-      toMobile: 'मोबाइल नंबर',
-      toUpi: 'UPI आईडी',
-      toBank: 'बैंक खातों',
-      recent: 'हाली का संपर्क:',
-      amount: 'भेजन री रकम (₹)',
-      note: 'कास्ट/नोट (मर्जी होवे तो)',
-      payFrom: 'पईसा कटे स्यूं कटसी:',
-      payBtn: 'भेजो ₹',
-      balance: 'वॉलेट में जमा',
-      lowBalance: 'वॉलेट में रूप्या कम है! पैली लोड करो।',
-      enterPin: '4 अंक रो UPI पिन डालो',
-      pinSubtitle: 'सुरक्षित बैंकिंग पिन',
-      processing: 'पेमेंट हो रह्यो है...',
-      successTitle: 'पईसा पूग ग्या!',
-      successSubtitle: 'रकम तुरत ट्रांसफर हो गी है'
-    }
+  const t = {
+    title: 'Send Money',
+    subtitle: 'Transfer funds instantly from BharatPay Wallet to any UPI ID or Mobile',
+    toMobile: 'To Mobile',
+    toUpi: 'To UPI ID',
+    toBank: 'To Bank A/c',
+    recent: 'Recent Contacts:',
+    amount: 'Transfer Amount (₹)',
+    note: 'Note / Remarks (Optional)',
+    payFrom: 'Pay From:',
+    payBtn: 'Pay ₹',
+    balance: 'Available Balance',
+    lowBalance: 'Insufficient Wallet balance! Please load money first.',
+    enterPin: 'Enter 4-Digit UPI PIN',
+    pinSubtitle: 'State Bank of India Security Verification',
+    processing: 'Processing Payment...',
+    successTitle: 'Payment Successful!',
+    successSubtitle: 'Funds transferred directly to recipient account'
   };
-  const t = translations[language] || translations.hi;
 
   const handleProceedToPay = () => {
     soundService.playClick();
     if (!recipient.trim()) {
-      setError('कृपया प्राप्तकर्ता का मोबाइल या UPI आईडी दर्ज करें');
+      setError('Please enter recipient mobile number or UPI ID');
       return;
     }
     if (!amount || amount <= 0) {
-      setError('कृपया सही राशि दर्ज करें');
+      setError('Please enter a valid payment amount');
       return;
     }
     if (amount > wallet.balance) {
@@ -227,22 +186,22 @@ export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
 
               <button
                 onClick={handleClose}
-                className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md transition-all active:scale-98"
+                className="w-full py-3 rounded-xl bg-[#2447E8] hover:bg-[#1738C8] text-white font-bold text-sm shadow-xs transition-all active:scale-98 cursor-pointer"
               >
-                रसीद बंद करें / पासबुक देखें
+                Done / View Passbook
               </button>
             </div>
           ) : showPinModal ? (
             /* Authentic UPI 4-Digit PIN Keypad Screen */
             <div className="py-4 space-y-6">
               <div className="text-center space-y-1">
-                <div className="w-10 h-10 mx-auto rounded-full bg-blue-100 text-blue-700 flex items-center justify-center mb-2">
+                <div className="w-10 h-10 mx-auto rounded-full bg-[#EEF3FF] text-[#2447E8] flex items-center justify-center mb-2">
                   <Lock className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-bold text-slate-900">{t.enterPin}</h4>
-                <p className="text-xs text-slate-500">{t.pinSubtitle}</p>
-                <div className="text-sm font-semibold text-emerald-600 mt-1">
-                  भुगतान राशि: ₹{amount.toLocaleString('en-IN')}
+                <h4 className="text-base font-bold text-[#151A2D]">{t.enterPin}</h4>
+                <p className="text-xs text-[#697086]">{t.pinSubtitle}</p>
+                <div className="text-sm font-semibold text-[#20B486] mt-1">
+                  Payment Amount: ₹{amount.toLocaleString('en-IN')}
                 </div>
               </div>
 
@@ -353,7 +312,7 @@ export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
               {/* Recipient Input */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-[#151A2D]">
-                  {sendType === 'mobile' ? 'मोबाइल नंबर (Mobile No.)' : sendType === 'upi' ? 'UPI ID (जैसे: name@upi)' : 'खाता संख्या व IFSC कोड'}
+                  {sendType === 'mobile' ? 'Mobile Number' : sendType === 'upi' ? 'UPI ID (e.g. name@upi)' : 'Account Number & IFSC Code'}
                 </label>
                 <input
                   type="text"
@@ -362,7 +321,7 @@ export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
                     setRecipient(e.target.value);
                     setError(null);
                   }}
-                  placeholder={sendType === 'mobile' ? '10 अंकों का मोबाइल नंबर' : sendType === 'upi' ? 'username@okhdfcbank' : 'A/c No + IFSC'}
+                  placeholder={sendType === 'mobile' ? '10-digit mobile number' : sendType === 'upi' ? 'username@okhdfcbank' : 'Account Number + IFSC'}
                   className="w-full px-3.5 py-2.5 bg-[#F7F9FF] border border-[#E6ECFA] rounded-xl text-sm text-[#151A2D] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2447E8]"
                 />
               </div>
@@ -423,7 +382,7 @@ export const SendMoneyModal: React.FC<SendMoneyModalProps> = ({
                   type="text"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
-                  placeholder="जैसे: घर का खर्च, दुकान का हिसाब..."
+                  placeholder="e.g. Rent, dinner, invoice..."
                   className="w-full px-3.5 py-2 bg-[#F7F9FF] border border-[#E6ECFA] rounded-xl text-xs text-[#151A2D] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2447E8]"
                 />
               </div>

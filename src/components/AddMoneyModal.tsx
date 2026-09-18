@@ -47,57 +47,22 @@ export const AddMoneyModal: React.FC<AddMoneyModalProps> = ({
 
   if (!isOpen) return null;
 
-  const translations = {
-    hi: {
-      title: 'वॉलेट में पैसे लोड करें (Add Money)',
-      subtitle: 'सुरक्षित बैंकिंग गेटवे से सीधे भारत पे वॉलेट में पैसे लोड करें',
-      enterAmount: 'लोड करने वाली राशि (Amount)',
-      popular: 'लोकप्रिय राशि:',
-      paymentSource: 'पैसे लोड करने का तरीका चुनें:',
-      loadBtn: 'तुरंत लोड करें ₹',
-      processing: 'बैंक से संपर्क हो रहा है...',
-      step1: 'बैंक सर्वर से सुरक्षित संपर्क स्थापित हो रहा है...',
-      step2: 'NPCI और UPI ऑथेंटिकेशन सत्यापित किया जा रहा है...',
-      step3: 'भारत पे वॉलेट में राशि ट्रांसफर की जा रही है...',
-      successTitle: 'वॉलेट लोडिंग सफल!',
-      successSubtitle: 'रुपये आपके भारत पे वॉलेट में तुरंत जोड़ दिए गए हैं',
-      txnId: 'ट्रांजेक्शन आईडी',
-      viewPassbook: 'पासबुक देखें / बंद करें'
-    },
-    en: {
-      title: 'Load Money to Wallet',
-      subtitle: 'Add funds instantly to your BharatPay wallet via secure UPI or NetBanking',
-      enterAmount: 'Enter Amount to Load',
-      popular: 'Quick Select:',
-      paymentSource: 'Select Payment Source:',
-      loadBtn: 'Load Instantly ₹',
-      processing: 'Connecting to Bank...',
-      step1: 'Establishing encrypted connection with Bank...',
-      step2: 'Verifying NPCI & UPI authorization...',
-      step3: 'Crediting funds to your BharatPay Wallet...',
-      successTitle: 'Wallet Loaded Successfully!',
-      successSubtitle: 'Funds are credited and available immediately for payments and loans',
-      txnId: 'Transaction ID',
-      viewPassbook: 'Done / View Passbook'
-    },
-    bg: {
-      title: 'वॉलेट में पईसा लोड करो (Add Money)',
-      subtitle: 'सुरक्षित बैंक खाता स्यूं सीधा वॉलेट में पईसा जमा करो',
-      enterAmount: 'लोड करन री रकम',
-      popular: 'जल्दी चुणो:',
-      paymentSource: 'पईसा कटवावण रो साधन चुणो:',
-      loadBtn: 'तुरंत लोड करो ₹',
-      processing: 'बैंक स्यूं बातचीत चाल री है...',
-      step1: 'बैंक स्यूं सुरक्षित संपर्क बण रह्यो है...',
-      step2: 'UPI जांच पूरी हो री है...',
-      step3: 'वॉलेट में रकम जमा हो री है...',
-      successTitle: 'पईसा लोड हो ग्या!',
-      successSubtitle: 'वॉलेट में रकम तुरंत जमा हो गी है',
-      txnId: 'ट्रांजेक्शन आईडी',
-      viewPassbook: 'पूरो होयो'
-    }
+  const t = {
+    title: 'Load Money to Wallet',
+    subtitle: 'Add funds instantly to your BharatPay wallet via secure UPI or NetBanking',
+    enterAmount: 'Enter Amount to Load',
+    popular: 'Quick Select:',
+    paymentSource: 'Select Payment Source:',
+    loadBtn: 'Load Instantly ₹',
+    processing: 'Connecting to Bank...',
+    step1: 'Establishing encrypted connection with Bank...',
+    step2: 'Verifying NPCI & UPI authorization...',
+    step3: 'Crediting funds to your BharatPay Wallet...',
+    successTitle: 'Wallet Loaded Successfully!',
+    successSubtitle: 'Funds are credited and available immediately for payments and transfers',
+    txnId: 'Transaction ID',
+    viewPassbook: 'Done / View Passbook'
   };
-  const t = translations[language] || translations.hi;
 
   const handleStartLoading = async () => {
     if (!amount || amount <= 0) return;
@@ -191,9 +156,9 @@ export const AddMoneyModal: React.FC<AddMoneyModalProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-2 text-xs text-amber-800 bg-amber-50 py-2 px-3 rounded-lg max-w-sm mx-auto border border-amber-200 font-medium">
-                <Volume2 className="w-4 h-4 text-amber-600 animate-pulse" />
-                <span>Soundbox announcement played in Hindi!</span>
+              <div className="flex items-center justify-center gap-2 text-xs text-[#2447E8] bg-[#EEF3FF] py-2 px-3 rounded-lg max-w-sm mx-auto border border-[#E6ECFA] font-medium">
+                <Volume2 className="w-4 h-4 text-[#2447E8] animate-pulse" />
+                <span>Voice payment confirmation played</span>
               </div>
 
               <button
@@ -323,9 +288,9 @@ export const AddMoneyModal: React.FC<AddMoneyModalProps> = ({
                 <ArrowRight className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500 text-center">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>256-bit Bank Grade Security • 100% RBI Protection Guarantee</span>
+              <div className="flex items-center justify-center gap-2 text-[11px] text-[#697086] text-center">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#20B486]" />
+                <span>256-bit Bank Grade Security • End-to-End Encrypted Transfers</span>
               </div>
             </>
           )}

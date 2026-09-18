@@ -122,7 +122,7 @@ class SoundService {
   }
 
   // Voice announcement like PhonePe / Paytm SmartBox
-  announcePayment(amount: number, type: 'ADD' | 'RECEIVE' | 'LOAN' | 'SEND' = 'RECEIVE', lang: 'hi' | 'en' | 'bg' = 'hi') {
+  announcePayment(amount: number, type: 'ADD' | 'RECEIVE' | 'LOAN' | 'SEND' = 'RECEIVE', lang: 'hi' | 'en' | 'bg' = 'en') {
     this.playSuccessChime();
     this.triggerConfetti();
 
@@ -135,37 +135,13 @@ class SoundService {
 
       let text = '';
       if (type === 'ADD') {
-        if (lang === 'bg') {
-          text = `भारत पे वॉलेट मां ${amount} रूप्या लोड हो ग्या!`;
-        } else if (lang === 'hi') {
-          text = `भारत पे वॉलेट में ${amount} रुपये लोड हो गए हैं`;
-        } else {
-          text = `Rupees ${amount} successfully added to BharatPay wallet`;
-        }
+        text = `Rupees ${amount} successfully added to BharatPay wallet`;
       } else if (type === 'LOAN') {
-        if (lang === 'bg') {
-          text = `मुबारक हो गगन जी! ${amount} रूप्या रो लोन थारे वॉलेट मां सीधो जमा हो ग्यो!`;
-        } else if (lang === 'hi') {
-          text = `बधाई हो गगन जी! ${amount} रुपये का लोन आपके भारत पे वॉलेट में तुरंत जमा हो गया है`;
-        } else {
-          text = `Congratulations Gagan! Loan of Rupees ${amount} is approved and credited to your wallet`;
-        }
+        text = `Congratulations! Loan of Rupees ${amount} is approved and credited to your wallet`;
       } else if (type === 'SEND') {
-        if (lang === 'bg') {
-          text = `${amount} रूप्या रो पेमेंट सफ़ल हो ग्यो`;
-        } else if (lang === 'hi') {
-          text = `${amount} रुपये का पेमेंट सफलतापूर्वक हो गया है`;
-        } else {
-          text = `Payment of Rupees ${amount} is successful`;
-        }
+        text = `Payment of Rupees ${amount} completed successfully`;
       } else {
-        if (lang === 'bg') {
-          text = `भारत पे माथे ${amount} रूप्या प्राप्त होया!`;
-        } else if (lang === 'hi') {
-          text = `भारत पे पर ${amount} रुपये प्राप्त हुए`;
-        } else {
-          text = `Received Rupees ${amount} on BharatPay`;
-        }
+        text = `Received Rupees ${amount} on BharatPay`;
       }
 
       const utterance = new SpeechSynthesisUtterance(text);
@@ -173,9 +149,9 @@ class SoundService {
       utterance.pitch = 1.05;
       
       const voices = window.speechSynthesis.getVoices();
-      const hindiVoice = voices.find(v => v.lang.includes('hi') || v.lang.includes('IN') || v.lang.includes('hi-IN'));
-      if (hindiVoice && (lang === 'hi' || lang === 'bg')) {
-        utterance.voice = hindiVoice;
+      const engVoice = voices.find(v => v.lang.includes('en-IN') || v.lang.includes('en-US') || v.lang.includes('en'));
+      if (engVoice) {
+        utterance.voice = engVoice;
       }
       
       // Delay speech slightly so the chime plays first

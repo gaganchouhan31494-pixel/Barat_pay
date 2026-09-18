@@ -61,7 +61,7 @@ export default function App() {
   const [wallet, setWallet] = useState<UserWallet>(() => getStoredWallet());
   const [transactions, setTransactions] = useState<Transaction[]>(() => getStoredTransactions());
   const [loans, setLoans] = useState<Loan[]>(() => getStoredLoans());
-  const [language, setLanguage] = useState<Language>('hi');
+  const [language, setLanguage] = useState<Language>('en');
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
 
   // Active page state ('home' | 'wallet' | 'loans' | 'rewards' | 'profile' | 'showcase')
@@ -151,7 +151,7 @@ export default function App() {
       id: `TXN-LOAD-${Date.now().toString().slice(-6)}`,
       type: 'ADD_MONEY',
       amount,
-      title: 'Wallet Loaded (पैसे जोड़े गए)',
+      title: 'Wallet Top-up',
       subtitle: `Via ${paymentMode} • SBI 6MLD Gharsana`,
       date: 'Just Now',
       timestamp: Date.now(),
@@ -286,7 +286,7 @@ export default function App() {
   const handlePayEmi = (loanId: string, emiAmount: number): boolean => {
     if (wallet.balance < emiAmount) {
       soundService.playError();
-      alert('अपर्याप्त वॉलेट बैलेंस (Insufficient Wallet Balance)! कृपया पहले वॉलेट में पैसे जोड़ें।');
+      alert('Insufficient Wallet Balance! Please add money to your wallet first.');
       setIsAddMoneyOpen(true);
       return false;
     }
@@ -314,7 +314,7 @@ export default function App() {
       id: `TXN-EMI-${Date.now().toString().slice(-6)}`,
       type: 'EMI_PAYMENT',
       amount: emiAmount,
-      title: 'Loan EMI Repayment (किस्त जमा)',
+      title: 'Loan EMI Repayment',
       subtitle: `Loan #${loanId} • SBI Escrow Account`,
       date: 'Just Now',
       timestamp: Date.now(),
@@ -343,7 +343,7 @@ export default function App() {
       id: `TXN-REWARD-${Date.now().toString().slice(-6)}`,
       type: 'ADD_MONEY',
       amount,
-      title: 'Cashback Reward (कैशबैक ईनाम)',
+      title: 'Cashback Reward',
       subtitle: 'BharatPay Scratch Card Bonus',
       date: 'Just Now',
       timestamp: Date.now(),
@@ -365,11 +365,11 @@ export default function App() {
       setIsUpiPinOpen(false);
       if (upiPinAction === 'CHECK_BALANCE') {
         setBankBalanceVisible(true);
-        triggerNotification('SBI खाता बैलेंस सत्यापित', `उपलब्ध शेष: ₹${wallet.bankAccount.balance.toLocaleString('en-IN')}`);
+        triggerNotification('SBI Account Balance', `Available Balance: ₹${wallet.bankAccount.balance.toLocaleString('en-IN')}`);
       }
     } else {
       soundService.playError();
-      alert('गलत UPI PIN! कृपया सही 4-अंकों का पिन दर्ज करें (डिफ़ॉल्ट: 1234)');
+      alert('Incorrect UPI PIN! Please enter the valid 4-digit PIN (Default: 1234)');
     }
   };
 
@@ -628,7 +628,7 @@ export default function App() {
         isOpen={isUpiPinOpen}
         onClose={() => setIsUpiPinOpen(false)}
         onSuccess={handleVerifyUpiPin}
-        actionTitle={upiPinAction === 'CHECK_BALANCE' ? 'बैंक बैलेंस जांचें (Check Balance)' : 'भुगतान सत्यापित करें'}
+        actionTitle={upiPinAction === 'CHECK_BALANCE' ? 'Check Bank Balance' : 'Verify Payment'}
       />
 
       {/* Authentication Modal */}
