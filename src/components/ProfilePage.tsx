@@ -39,6 +39,7 @@ interface ProfilePageProps {
   onOpenLimits: () => void;
   onOpenLinkedAccounts: () => void;
   onOpenAuth?: () => void;
+  onLogout?: () => void;
 }
 
 export const ProfilePage: React.FC<ProfilePageProps> = ({
@@ -49,7 +50,8 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   onOpenSoundbox,
   onOpenLimits,
   onOpenLinkedAccounts,
-  onOpenAuth
+  onOpenAuth,
+  onLogout
 }) => {
   const [copiedUpi, setCopiedUpi] = useState<boolean>(false);
   const [biometricsEnabled, setBiometricsEnabled] = useState<boolean>(true);
@@ -327,7 +329,11 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                 type="button"
                 onClick={() => {
                   soundService.playClick();
-                  if (onOpenAuth) onOpenAuth();
+                  if (onLogout) {
+                    onLogout();
+                  } else if (onOpenAuth) {
+                    onOpenAuth();
+                  }
                 }}
                 className="w-full py-3 px-4 rounded-xl border border-[#E05252]/30 hover:bg-[#E05252]/10 text-[#E05252] text-xs font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >

@@ -30,6 +30,8 @@ import { LoansSection } from './components/LoansSection';
 import { RechargeServices } from './components/RechargeServices';
 import { WebsiteFooter } from './components/WebsiteFooter';
 import { BottomNavBar, BottomNavTab } from './components/BottomNavBar';
+import { SplashScreen } from './components/SplashScreen';
+import { LoginPage } from './components/LoginPage';
 
 // Modals
 import { AddMoneyModal } from './components/AddMoneyModal';
@@ -67,9 +69,43 @@ export default function App() {
   // Active page state ('home' | 'wallet' | 'loans' | 'rewards' | 'profile' | 'showcase')
   const [activePage, setActivePage] = useState<'home' | 'wallet' | 'loans' | 'rewards' | 'profile' | 'showcase'>('home');
 
-  // Authentication state
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
+  // Authentication & Loading state
+  const [showSplash, setShowSplash] = useState<boolean>(true);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => localStorage.getItem('bharatpay_auth') === 'true');
+  const [isPageLoading, setIsPageLoading] = useState<boolean>(false);
+  const [loadingText, setLoadingText] = useState<string>('Loading secure payment gateway...');
   const [isAuthOpen, setIsAuthOpen] = useState<boolean>(false);
+
+  const handleSelectTab = (tab: 'home' | 'wallet' | 'loans' | 'rewards' | 'profile' | 'showcase') => {
+    const titles: Record<string, string> = {
+      home: 'Loading Dashboard...',
+      wallet: 'Loading Wallet Passbook...',
+      loans: 'Loading Gold & Silver Loans...',
+      rewards: 'Loading Rewards & Offers...',
+      profile: 'Loading Profile & KYC...',
+      showcase: 'Loading Mobile Mockup...'
+    };
+    setLoadingText(titles[tab] || 'Loading page...');
+    setIsPageLoading(true);
+    soundService.playClick();
+    setTimeout(() => {
+      setActivePage(tab);
+      setIsPageLoading(false);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 400);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('bharatpay_auth');
+    setLoadingText('Logging out securely...');
+    setIsPageLoading(true);
+    soundService.playClick();
+    setTimeout(() => {
+      setIsPageLoading(false);
+      setActivePage('home');
+    }, 400);
+  };
 
   // Notifications state
   const [isNotificationsOpen, setIsNotificationsOpen] = useState<boolean>(false);
@@ -373,8 +409,69 @@ export default function App() {
     }
   };
 
+  if (showSplash) {
+    return (
+      <SplashScreen
+        onComplete={() => setShowSplash(false)}
+        brandName="BharatPay"
+        tagline="Simple. Secure. Instant Indian Digital Payments."
+      />
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <>
+        {isPageLoading && (
+          <div className="fixed inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center space-y-4 animate-fade-in">
+            <div className="relative">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1738C8] to-[#2447E8] text-white flex items-center justify-center font-extrabold text-2xl shadow-xl animate-bounce">
+                ₹
+              </div>
+              <div className="absolute -inset-2 rounded-3xl border-2 border-[#2447E8]/30 animate-spin border-t-transparent" />
+            </div>
+            <div className="text-center space-y-1">
+              <h3 className="text-lg font-bold text-[#151A2D]">{loadingText}</h3>
+              <p className="text-xs text-[#697086]">Please wait while we sync your secure credentials</p>
+            </div>
+          </div>
+        )}
+        <LoginPage
+          onLoginSuccess={(name, identifier) => {
+            setIsAuthenticated(true);
+            localStorage.setItem('bharatpay_auth', 'true');
+            setWallet(prev => ({ ...prev, name, phone: identifier }));
+            setLoadingText('Signing in securely...');
+            setIsPageLoading(true);
+            setTimeout(() => {
+              setIsPageLoading(false);
+              setActivePage('home');
+            }, 500);
+          }}
+          brandName="BharatPay"
+        />
+      </>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col selection:bg-blue-600 selection:text-white transition-colors relative">
+    <div className="min-h-screen bg-[#F7F9FF] text-[#151A2D] flex flex-col font-sans selection:bg-[#2447E8] selection:text-white relative">
+      {/* Page Transition Loader Overlay */}
+      {isPageLoading && (
+        <div className="fixed inset-0 z-50 bg-white/95 backdrop-blur-md flex flex-col items-center justify-center space-y-4 animate-fade-in">
+          <div className="relative">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1738C8] to-[#2447E8] text-white flex items-center justify-center font-extrabold text-2xl shadow-xl animate-bounce">
+              ₹
+            </div>
+            <div className="absolute -inset-2 rounded-3xl border-2 border-[#2447E8]/30 animate-spin border-t-transparent" />
+          </div>
+          <div className="text-center space-y-1">
+            <h3 className="text-lg font-bold text-[#151A2D]">{loadingText}</h3>
+            <p className="text-xs text-[#697086]">Please wait while we sync your secure wallet &amp; accounts</p>
+          </div>
+        </div>
+      )}
+
       {/* Institutional Navigation Header */}
       <Navbar
         wallet={wallet}
@@ -386,7 +483,7 @@ export default function App() {
         soundEnabled={soundEnabled}
         onToggleSound={() => setSoundEnabled(!soundEnabled)}
         activeTab={activePage}
-        onSelectTab={(page) => setActivePage(page)}
+        onSelectTab={handleSelectTab}
         onOpenNotifications={() => setIsNotificationsOpen(true)}
         unreadNotificationsCount={notificationsList.filter(n => !n.read).length}
         onOpenAuth={() => setIsAuthOpen(true)}
@@ -538,6 +635,7 @@ export default function App() {
                 onOpenLimits={() => setIsLimitsOpen(true)}
                 onOpenLinkedAccounts={() => setIsLinkedAccountsOpen(true)}
                 onOpenAuth={() => setIsAuthOpen(true)}
+                onLogout={handleLogout}
               />
             )}
           </div>
@@ -562,10 +660,7 @@ export default function App() {
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
         <BottomNavBar
           activeTab={activePage === 'showcase' ? 'home' : activePage}
-          onSelectTab={(tab: BottomNavTab) => {
-            setActivePage(tab);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          onSelectTab={handleSelectTab}
           onOpenScan={() => setIsScanPayOpen(true)}
         />
       </div>
